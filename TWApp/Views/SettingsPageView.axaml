@@ -1,0 +1,52 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:TWApp.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="TWApp.Views.SettingsPageView"
+             x:DataType="vm:SettingsPageViewModel">
+
+    <Viewbox Stretch="Uniform">
+
+      <RelativePanel
+        Width="900"
+        Height="550">
+
+        <CheckBox 
+          Name="StrictModeCheckBox"
+          Width="200"
+          Height="50"
+          Content="Использовать строгий режим" 
+          IsChecked="True"
+          
+          RelativePanel.AlignHorizontalCenterWithPanel="True"
+          RelativePanel.AlignVerticalCenterWithPanel="True"
+          Margin="10, 10, 10, 10" />
+
+        <TextBlock
+          Name="DifficultySliderTitle"
+          Width="500"
+          Height="20"
+          RelativePanel.AlignHorizontalCenterWithPanel="True"
+          RelativePanel.Below="StrictModeCheckBox"
+          Text="Выберете уровень сложности (Просто, Нормально, Сложно)"
+          Margin="10, 10, 10, 10"/>
+
+        <Slider x:Name="StepSlider"
+            Width="200"
+            Height="50"
+            Minimum="0"
+            Maximum="2"
+            Value="1"
+            TickFrequency="1"
+            IsSnapToTickEnabled="True"
+            TickPlacement="BottomRight"
+            RelativePanel.AlignHorizontalCenterWithPanel="True"
+            RelativePanel.Below="DifficultySliderTitle"
+            Margin="10, 10, 10, 10"/>
+
+      </RelativePanel>
+    </Viewbox>
+  
+</UserControl>

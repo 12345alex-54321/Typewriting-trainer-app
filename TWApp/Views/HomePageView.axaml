@@ -1,0 +1,86 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:TWApp.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:DataType="vm:HomePageViewModel"
+             x:Class="TWApp.Views.HomePageView">
+
+    <UserControl.Styles>
+
+    </UserControl.Styles>
+
+    <Viewbox Stretch="Uniform">
+
+        <RelativePanel
+            Width="900"
+            Height="550">
+
+            <TextBlock
+                FontFamily="Consolas, Courier New, Monospace"
+                xml:space="preserve"
+                TextWrapping="NoWrap"
+                HorizontalAlignment="Left"
+                Name="MenuTitle"
+                Width="800"
+                Height="150"
+                Margin="10, 10, 10, 10"
+                >
+                <TextBlock.Text>
+                <![CDATA[
+                 _______           _               _______        _                  
+                |__   __|         (_)             |__   __|      (_)                 
+                    | |_   _ _ __  _ _ __   __ _     | |_ __ __ _ _ _ __   ___ _ __  
+                    | | | | | '_ \| | '_ \ / _` |    | | '__/ _` | | '_ \ / _ \ '__| 
+                    | | |_| | |_) | | | | | (_| |    | | | | (_| | | | | |  __/ |    
+                    |_|\__, | .__/|_|_| |_|\__, |    |_|_|  \__,_|_|_| |_|\___|_|    
+                        __/ | |             __/ |                                    
+                       |___/|_|            |___/                                     ]]>
+                </TextBlock.Text>
+            </TextBlock>
+
+            <Button 
+                Name="ToLessons"
+                Classes="MainMenuButton"
+                Width="200"
+                Height="100"
+                RelativePanel.AlignHorizontalCenterWithPanel="True"
+                RelativePanel.Below="MenuTitle"
+                Margin="10, 10, 10, 10"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
+                Command="{Binding OpenLessonsCommand}">
+                Приступить к занятиям
+            </Button>
+
+            <Button
+                Name="Settings"
+                Classes="MainMenuButton"
+                Width="200"
+                Height="100"
+                RelativePanel.Below="ToLessons"
+                RelativePanel.AlignHorizontalCenterWithPanel="True"
+                Margin="10, 10, 10, 10"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
+                Command="{Binding OpenSettingsCommand}">
+                Настройки
+            </Button>
+
+            <Button
+                Name="About"
+                Classes="MainMenuButton"
+                Width="200"
+                Height="100"
+                RelativePanel.Below="Settings"
+                RelativePanel.AlignHorizontalCenterWithPanel="True"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
+                Margin="10, 10, 10, 10">
+                О Проекте
+            </Button>
+
+        </RelativePanel>
+    </Viewbox>  
+</UserControl>
