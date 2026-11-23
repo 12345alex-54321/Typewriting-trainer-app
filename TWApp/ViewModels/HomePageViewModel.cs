@@ -1,5 +1,6 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using TWApp.Services;
 
 namespace TWApp.ViewModels;
 
@@ -20,7 +21,8 @@ public partial class HomePageViewModel : ViewModelBase
     }
 
     [RelayCommand]
-    public void OpenAbout() {
+    public void OpenAbout() 
+    {
         Navigation.NavigateTo<AboutPageViewModel>();
     }
 }

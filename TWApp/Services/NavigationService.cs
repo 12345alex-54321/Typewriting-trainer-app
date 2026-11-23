@@ -3,7 +3,7 @@ using Avalonia.Media;
 using CommunityToolkit.Mvvm.ComponentModel;
 using TWApp.ViewModels;
 
-namespace TWApp;
+namespace TWApp.Services;
 
 public partial class NavigationService : ObservableObject
 {   

@@ -13,13 +13,29 @@
             <RelativePanel
               Width="800"
               Height="450">
+
+              <Button
+                Name="BackButton"
+                Width="120"
+                Height="30"
+                Content="&#x2190; Назад"
+                RenderTransform="scale(0.8)" 
+                RenderTransformOrigin="0%,0%" 
+                RelativePanel.AlignLeftWithPanel="True"
+                RelativePanel.AlignTopWithPanel="True"
+                Margin="15, 15, 15, 15"
+                Command="{Binding ToHomePageCommand}">
+              </Button>
               
               <md:MarkdownScrollViewer 
-              Margin="16" 
-              RenderTransform="scale(0.6)" 
-              RenderTransformOrigin="0%,0%" 
-              Source="avares://TWApp/Assets/AboutProject.md">
-
+                Name="TextABout"
+                Margin="16" 
+                RenderTransform="scale(0.8)" 
+                RenderTransformOrigin="0%,0%" 
+                Source="avares://TWApp/Assets/AboutProject.md"
+                RelativePanel.AlignHorizontalCenterWithPanel="True"
+                RelativePanel.Below="BackButton">
+                
               </md:MarkdownScrollViewer>
               
             </RelativePanel>
