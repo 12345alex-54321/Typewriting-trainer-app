@@ -4,7 +4,25 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="using:TWApp.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:md="clr-namespace:Markdown.Avalonia;assembly=Markdown.Avalonia"
              x:DataType="vm:AboutPageViewModel"
              x:Class="TWApp.Views.AboutPageView">
-  Страница о приложении
+
+          <Viewbox Stretch="Uniform">
+
+            <RelativePanel
+              Width="800"
+              Height="450">
+              
+              <md:MarkdownScrollViewer 
+              Margin="16" 
+              RenderTransform="scale(0.6)" 
+              RenderTransformOrigin="0%,0%" 
+              Source="avares://TWApp/Assets/AboutProject.md">
+
+              </md:MarkdownScrollViewer>
+              
+            </RelativePanel>
+
+          </Viewbox>
 </UserControl>

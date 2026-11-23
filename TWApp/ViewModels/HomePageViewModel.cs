@@ -18,4 +18,9 @@ public partial class HomePageViewModel : ViewModelBase
     {
         Navigation.NavigateTo<LessonsPageViewModel>();
     }
+
+    [RelayCommand]
+    public void OpenAbout() {
+        Navigation.NavigateTo<AboutPageViewModel>();
+    }
 }

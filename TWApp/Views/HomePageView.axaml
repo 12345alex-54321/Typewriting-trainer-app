@@ -77,7 +77,8 @@
                 RelativePanel.AlignHorizontalCenterWithPanel="True"
                 VerticalContentAlignment="Center"
                 HorizontalContentAlignment="Center"
-                Margin="10, 10, 10, 10">
+                Margin="10, 10, 10, 10"
+                Command="{Binding OpenAboutCommand}">
                 О Проекте
             </Button>
 
