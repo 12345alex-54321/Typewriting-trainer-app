@@ -4,9 +4,9 @@ using Avalonia.Markup.Xaml;
 
 namespace TWApp.Views;
 
-public partial class LessonsPageView : UserControl
+public partial class LessonsErrorPageView : UserControl
 {
-    public LessonsPageView()
+    public LessonsErrorPageView()
     {
         InitializeComponent();
     }

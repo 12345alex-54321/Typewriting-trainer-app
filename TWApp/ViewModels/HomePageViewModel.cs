@@ -8,6 +8,8 @@ public partial class HomePageViewModel : ViewModelBase
 {
     public NavigationService Navigation => NavigationService.Instance;
 
+    public SettingsService Settings => SettingsService.Instance;
+
     [RelayCommand]
     public void OpenSettings()
     {
@@ -17,7 +19,12 @@ public partial class HomePageViewModel : ViewModelBase
     [RelayCommand]
     public void OpenLessons() 
     {
-        Navigation.NavigateTo<LessonsPageViewModel>();
+        Navigation.NavigateTo<LevelsPageViewModel>();
+
+        if(LevelsNavigationService.Instance.HasErrorWhileDeserialize)
+        {
+            Navigation.NavigateTo<LessonsErrorPageViewModel>();
+        }
     }
 
     [RelayCommand]

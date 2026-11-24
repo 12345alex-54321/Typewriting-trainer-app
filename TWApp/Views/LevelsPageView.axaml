@@ -1,0 +1,68 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:TWApp.ViewModels"
+             xmlns:models="using:TWApp.Models"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:DataType="vm:LevelsPageViewModel"
+             x:Class="TWApp.Views.LevelsPageView"
+             x:Name="Root">
+  
+  <Viewbox Stretch="Uniform">
+
+    <RelativePanel
+      Width="800"
+      Height="600">
+
+      <ScrollViewer>
+
+          <ItemsControl 
+          Name="Lessons"
+          ItemsSource="{Binding Service.Levels}">
+            
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="5" VerticalAlignment="Top" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+
+            <ItemsControl.ItemTemplate>
+                <DataTemplate x:DataType="models:LevelModel">
+                    <Button 
+                            Width="200"
+                            Height="100"
+                            Content="{Binding Title}"
+                            Command="{Binding #Root.((vm:LevelsPageViewModel)DataContext).SelectItemCommand}"
+                            CommandParameter="{Binding Number}"
+                            HorizontalContentAlignment="Center"
+                            VerticalContentAlignment="Center"
+                            RenderTransform="scale(0.6)" 
+                            RenderTransformOrigin="0%,0%" 
+                            
+                            />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+
+        </ItemsControl>
+
+      </ScrollViewer>
+
+      <Button
+        Name="ToHome"
+        Width="200"
+        Height="30"
+        VerticalAlignment="Bottom"
+        HorizontalAlignment="Center"
+        RelativePanel.AlignHorizontalCenterWithPanel="True"
+        RelativePanel.AlignBottomWithPanel="True"
+        Command="{Binding ToHomeCommand}"
+        Content="&#x2190; Назад"
+        Margin="10, 10, 10, 10">
+      </Button>
+
+    </RelativePanel>
+
+  </Viewbox>
+
+</UserControl>

@@ -44,11 +44,11 @@
             RelativePanel.AlignHorizontalCenterWithPanel="True"
             RelativePanel.Below="DifficultySliderTitle"
             Margin="10, 10, 10, 10"
-            Value="{Binding Model.DifficultyIndex, Mode=TwoWay}" />
+            Value="{Binding Model.DifficultyIndex}" />
 
         <ComboBox 
           Name="LanguageComboBox"
-          ItemsSource="{Binding Model.Languages, Mode=TwoWay}"
+          ItemsSource="{Binding Model.Languages}"
           SelectedItem="{Binding Model.CurrentLanguage}"
           PlaceholderText="Выберете язык"
           Margin="10, 10, 10, 10"

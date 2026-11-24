@@ -21,15 +21,18 @@ public class SettingsService
 
     public SettingsModel UsersSettings { get; private set; } = new();
 
+    public event Action? SettingsSaved;
+
     private SettingsService()
     {
-    
         string appFolder = Path.Combine(
             Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
             "TWApp"
         );
 
         _filepath = Path.Combine(appFolder, "Settings.json");
+
+        Load();
     }
 
     public void Save()
@@ -42,6 +45,8 @@ public class SettingsService
 
         string settingsJson = JsonSerializer.Serialize(UsersSettings, JsonOptions);
         File.WriteAllText(_filepath, settingsJson, System.Text.Encoding.UTF8);
+
+        SettingsSaved?.Invoke();
     }
 
     public void Load()
@@ -49,6 +54,7 @@ public class SettingsService
         if (File.Exists(_filepath))
         {
             string json = File.ReadAllText(_filepath, System.Text.Encoding.UTF8);
+            Console.WriteLine(json);
 
             if (!string.IsNullOrWhiteSpace(json))
             {
@@ -56,8 +62,10 @@ public class SettingsService
                 return;
             }
         }
-
-        UsersSettings = new SettingsModel();
-        Save();
+        else
+        {
+            UsersSettings = new SettingsModel();
+            Save();
+        }
     }
 }
