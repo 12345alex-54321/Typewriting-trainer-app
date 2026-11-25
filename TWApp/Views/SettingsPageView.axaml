@@ -21,7 +21,7 @@
           IsChecked="{Binding Model.IsStrictMode}"
           
           RelativePanel.AlignHorizontalCenterWithPanel="True"
-          RelativePanel.AlignVerticalCenterWithPanel="True"
+          RelativePanel.AlignTopWithPanel="True"
           Margin="10, 10, 10, 10" />
 
         <TextBlock
