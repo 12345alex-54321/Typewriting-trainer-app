@@ -30,7 +30,9 @@ public class LevelsNavigationService : ObservableObject
     private static readonly Lazy<LevelsNavigationService> _instance = new(() => new LevelsNavigationService());
     public static LevelsNavigationService Instance => _instance.Value;
 
-    public ObservableCollection<LevelModel> Levels { get; } = new();
+    public ObservableCollection<LevelModel> Levels {get; } = new();
+
+    public LevelModel CurrentLevel{get; set;} = new();
 
     private LevelsNavigationService()
     {
@@ -39,6 +41,11 @@ public class LevelsNavigationService : ObservableObject
         MarkErrorIfError();
 
         SettingsService.Instance.SettingsSaved += Load;
+
+        if(this.HasErrorWhileDeserialize != true && this.Levels.Count > 0)
+        {
+            CurrentLevel = Levels[0];
+        }
     }
 
     public void Load()

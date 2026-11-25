@@ -13,7 +13,21 @@ public partial class LevelsPageViewModel : ViewModelBase
     [RelayCommand]
     public void SelectItem(int number)
     {
-        System.Console.WriteLine(number);
+        if(number > 0 && number < Service.Levels.Count)
+        {
+            Service.CurrentLevel = Service.Levels[number];
+            Navigation.NavigateTo<LessonPageViewModel>(); 
+        }
+        else
+        {
+            Service.ErrorText = "Выбранный уровень не существует!";
+            Service.ErrorLogs = "<Key not found exception>";
+            Service.HasErrorWhileDeserialize = true;
+            Navigation.NavigateTo<LessonsErrorPageViewModel>();
+            Service.ErrorText = string.Empty;
+            Service.ErrorLogs = string.Empty;
+            Service.HasErrorWhileDeserialize = false;
+        }
     }
 
     [RelayCommand]

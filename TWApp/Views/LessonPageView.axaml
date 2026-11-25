@@ -1,0 +1,58 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:TWApp.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:DataType="vm:LessonPageViewModel"
+             x:Class="TWApp.Views.LessonPageView">
+  <Viewbox
+    Stretch="Uniform"
+    >
+
+    <RelativePanel
+      Width="800"
+      Height="600"
+      >
+
+      <TextBlock
+        Name="LevelTitle"
+        Width="650"
+        Height="60"
+        RelativePanel.AlignHorizontalCenterWithPanel="True"
+        RelativePanel.AlignTopWithPanel="True"
+        Margin="10, 10, 10, 10"
+        Text="{Binding Current.Title}"
+        >
+      </TextBlock>
+
+      <TextBlock
+        Name="LevelText"
+        Width="800"
+        Height="350"
+        RelativePanel.AlignHorizontalCenterWithPanel="True"
+        RelativePanel.Below="LevelTitle"
+        Margin="10, 10, 10, 10"
+        TextWrapping="Wrap"
+        Text="{Binding Current.Text}"
+        >
+      </TextBlock>
+
+      <Button
+        Name="BackToLevels"
+        Width="200"
+        Height="50"
+        RelativePanel.AlignHorizontalCenterWithPanel="True"
+        RelativePanel.Below="LevelText"
+        HorizontalContentAlignment="Center"
+        VerticalContentAlignment="Center"
+        Margin="10, 10, 10, 10"
+        Content="Назад в меню"
+        Command="{Binding ToLessonsCommand}"
+        >
+      </Button>
+
+    </RelativePanel>
+  </Viewbox>
+
+</UserControl>
